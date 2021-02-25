@@ -10,12 +10,9 @@ namespace AspNetCoreWebApplicationTest.Controllers
         public void IndexTest()
         {
             HomeController controller = new HomeController();
-            var response = controller.Get().Value as Response;
-            Assert.Equal("Hello World!!!", response.output);
-            
-            //ViewResult result = (ViewResult) controller.Index();
-            //Assert.Single(result.ViewData);
-            //Assert.Equal("You just created a ASP.Net Core web application!", result.ViewData["Message"]);
+            ViewResult result = (ViewResult) controller.Index();
+            Assert.Single(result.ViewData);
+            Assert.Equal("You just created a ASP.Net Core web application!", result.ViewData["Message"]);
         }
 
         [Fact]
